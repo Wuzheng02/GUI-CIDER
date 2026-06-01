@@ -1,9 +1,69 @@
 # GUI-CIDER
 
+[![Paper](https://img.shields.io/badge/Paper-arXiv-red)](https://arxiv.org/abs/2605.28534)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Official repository for the paper **"GUI-CIDER: Mid-training GUI Agents via Causal Internalization and Density-aware Exemplar Reselection"**.
+
+## 📖 Introduction
+
+**GUI-CIDER** is a novel mid-training framework designed to explicitly internalize GUI world knowledge into agents. To overcome the challenges of implicit knowledge learning and semantic redundancy in GUI tasks, GUI-CIDER operates through a systematic three-stage pipeline:
+
+1. **Data Synthesis:** Distills static planning knowledge and dynamic causal knowledge from raw GUI trajectories into text.
+2. **Exemplar Reselection:** Filters the synthesized corpus by rewarding causal structures and penalizing semantic redundancy using density-aware estimation (based on K-nearest neighbors).
+3. **Mid-training:** Fine-tunes the GUI agent using this highly refined, low-redundancy corpus, enabling a single agent to effectively accomplish complex GUI tasks with strong reasoning structures.
+
 ![GUI-CIDER Framework](https://github.com/Wuzheng02/GUI-CIDER/blob/main/pipeline.png)
 
-## Dependencies
+## 🛠️ Dependencies & Environment
 
-All training is carried out using **llama-factory**. We thank **llama-factory** for their contributions to the community.
+All training procedures in this project are carried out using the **LLaMA-Factory** framework. We extend our sincere gratitude to the LLaMA-Factory community for their incredible contributions to open-source LLM training.
 
-* [LlamaFactory Repository](https://github.com/hiyouga/LlamaFactory)
+* [LLaMA-Factory Repository](https://github.com/hiyouga/LlamaFactory)
+
+## 📊 Data Preparation
+
+To prepare the dataset for mid-training and evaluation, please refer to the detailed instructions in our dataset guide:
+
+* [Dataset Download & Formatting Guide](https://github.com/Wuzheng02/GUI-CIDER/blob/main/data/dataset.md)
+
+Please follow the descriptions in the linked markdown file to download the datasets and modify them into the required format before proceeding.
+
+## 🚀 Evaluation & Reproduction
+
+We provide comprehensive scripts to evaluate GUI-CIDER across multiple benchmarks. **Note:** Before running the evaluation tests, please ensure that all corresponding model and dataset paths are correctly configured within the scripts.
+
+* **For AITZ, AndroidControl, and GUI-Odyssey:**
+```bash
+  python test_loop.py
+
+```
+
+* **For MMBench-GUI L1:**
+```bash
+python test_loop_mmbench.py
+
+```
+
+
+* **For GUI Knowledge Bench:**
+```bash
+python test_loop_guiknowledgebench.py
+
+```
+
+
+
+## 📝 Citation
+
+If you find our work, data, or this repository useful in your research, please consider citing our paper:
+
+```bibtex
+@article{wu2026gui,
+  title={GUI-CIDER: Mid-training GUI Agents via Causal Internalization and Density-aware Exemplar Reselection},
+  author={Wu, Zheng and Han, Chengcheng and Lu, Zhengxi and Ju, Tianjie and Chen, Yanyu and Gu, Qi and Cai, Xunliang and Zhang, Zhuosheng},
+  journal={arXiv preprint arXiv:2605.28534},
+  year={2026}
+}
+
+
